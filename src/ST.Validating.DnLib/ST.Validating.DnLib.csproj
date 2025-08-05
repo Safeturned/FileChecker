@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <PackageReference Include="dnlib" Version="4.5.0"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\ST.Validating.Abstraction\ST.Validating.Abstraction.csproj"/>
+        <ProjectReference Include="..\ST.Validating\ST.Validating.csproj"/>
+    </ItemGroup>
+</Project>

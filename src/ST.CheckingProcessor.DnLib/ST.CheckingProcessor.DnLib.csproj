@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <ProjectReference Include="..\ST.Checking.Abstraction\ST.Checking.Abstraction.csproj"/>
+        <ProjectReference Include="..\ST.Checking.Dnlib\ST.Checking.Dnlib.csproj"/>
+        <ProjectReference Include="..\ST.CheckingProcessor.Abstraction\ST.CheckingProcessor.Abstraction.csproj"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="dnlib" Version="4.5.0"/>
+    </ItemGroup>
+</Project>

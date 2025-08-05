@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
         <PackageReference Include="DI.Engine.Abstraction" Version="1.0.6"/>
-        <PackageReference Include="DI.Engine.Attributes" Version="1.0.6"/>
         <PackageReference Include="DI.Engine.Template" Version="1.0.6"/>
         <PackageReference Include="DI.Service.Provide.Extensions" Version="1.0.6"/>
         <PackageReference Include="DI.Services" Version="1.0.6"/>
@@ -11,13 +10,15 @@
         <PackageReference Include="DI.Services.Provide" Version="1.0.6"/>
         <PackageReference Include="DI.Services.Scheme" Version="1.0.6"/>
         <PackageReference Include="DI.Services.Scheme.Abstraction" Version="1.0.6"/>
-        <PackageReference Include="DI.Services.Scheme.Attributes" Version="1.0.6"/>
         <PackageReference Include="DI.Services.Scheme.Factory" Version="1.0.6"/>
         <PackageReference Include="DI.Services.Scheme.Factory.Abstraction" Version="1.0.6"/>
         <PackageReference Include="DI.Services.Scheme.Read" Version="1.0.6"/>
         <PackageReference Include="DI.Services.Scheme.Read.Abstraction" Version="1.0.6"/>
         <PackageReference Include="DI.Services.Scheme.Read.Validation" Version="1.0.6"/>
         <PackageReference Include="DI.Services.Scheme.Read.Validation.Abstraction" Version="1.0.6"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\ST.Initializatializing.Abstraction\ST.Initializatializing.Abstraction.csproj"/>
     </ItemGroup>
 
 </Project>

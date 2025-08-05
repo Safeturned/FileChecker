@@ -1,19 +1,22 @@
 <Project>
+    <ItemGroup>
+        <Compile Include="../GlobalAssemblyInfo.cs" Link="../GlobalAssemblyInfo.cs"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="DI.Engine.Attributes" Version="1.0.6"/>
+        <PackageReference Include="DI.Services.Scheme.Attributes" Version="1.0.6"/>
+    </ItemGroup>
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net48</TargetFramework>
         <LangVersion>preview</LangVersion>
         <Nullable>enable</Nullable>
         <BaseOutputPath>$(SolutionDir)bin\lib</BaseOutputPath>
         <PackageId>$(MSBuildProjectName)</PackageId>
-        <Company>Empty Solution</Company>
+        <Company>SafeTurned</Company>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
         <WarningLevel>9999</WarningLevel>
         <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-    </PropertyGroup>
-    <PropertyGroup>
-        <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-        <ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
     </PropertyGroup>
 </Project>
