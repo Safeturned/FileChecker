@@ -1,2 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\ST.CheckingProcessor.Abstraction\ST.CheckingProcessor.Abstraction.csproj" />
+  </ItemGroup>
 </Project>

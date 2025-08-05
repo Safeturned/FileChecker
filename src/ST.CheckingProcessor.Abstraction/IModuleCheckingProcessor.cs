@@ -1,7 +1,6 @@
-﻿using ST.Checking.Abstraction;
-using System.IO;
+﻿using System.IO;
 namespace ST.CheckingProcessor.Abstraction;
 public interface IModuleCheckingProcessor
 {
-    IModuleCheckingContext Process(Stream stream);
+    IModuleProcessingContext Process(Stream stream);
 }

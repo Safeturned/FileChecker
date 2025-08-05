@@ -1,6 +1,7 @@
-﻿namespace ST.Validating.Abstraction;
+﻿using ST.CheckingProcessor.Abstraction;
+namespace ST.Validating.Abstraction;
 public interface IModuleValidator
 {
-    bool CanValidate(IModuleValidationContext context);
-    bool Validate(IModuleValidationContext context);
+    bool CanValidate(IModuleProcessingContext context);
+    bool Validate(IModuleProcessingContext context);
 }

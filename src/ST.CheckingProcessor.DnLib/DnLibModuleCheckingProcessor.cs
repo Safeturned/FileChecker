@@ -4,26 +4,32 @@ using DI.Services.Scheme.Abstraction;
 using DI.Services.Scheme.Attributes;
 using dnlib.DotNet;
 using ST.Checking.Abstraction;
-using ST.Checking.DnLib;
 using ST.CheckingProcessor.Abstraction;
+using ST.Validating.Abstraction;
 using System.Collections.Generic;
 using System.IO;
 namespace ST.CheckingProcessor.DnLib;
 [DiDescript(Order = 10, Lifetime = EDiServiceLifetime.Singleton, ServiceType = typeof(IModuleCheckingProcessor))]
 public class DnLibModuleCheckingProcessor(
-    [DiParameter(IgnoreKeys = true, ServiceEquals = EDiServiceEquals.SubClassOrAssignableOrEquals)] IEnumerable<IModuleChecker> moduleCheckers)
+    [DiParameter(IgnoreKeys = true, ServiceEquals = EDiServiceEquals.SubClassOrAssignableOrEquals)] IEnumerable<IModuleChecker> moduleCheckers,
+    [DiParameter(IgnoreKeys = true, ServiceEquals = EDiServiceEquals.SubClassOrAssignableOrEquals)] IEnumerable<IModuleValidator> moduleValidators)
     : IModuleCheckingProcessor
 {
-    public IModuleCheckingContext Process(Stream stream)
+    public IModuleProcessingContext Process(Stream stream)
     {
-        ModuleDefMD               module  = ModuleDefMD.Load(stream);
-        DnLibModuleCheckerContext context = new(module);
+        ModuleDefMD                  module            = ModuleDefMD.Load(stream);
+        DnLibModuleProcessingContext processingContext = new(stream, module);
+        foreach(IModuleValidator moduleValidator in moduleValidators)
+            if(!moduleValidator.CanValidate(processingContext))
+                return processingContext;
+
         foreach(IModuleChecker moduleChecker in moduleCheckers)
         {
-            if(!moduleChecker.CanCheck(context)) continue;
+            if(!moduleChecker.CanCheck(processingContext)) continue;
 
-            moduleChecker.Check(context);
+            moduleChecker.Check(processingContext);
         }
-        return context;
+        processingContext.Checked = true;
+        return processingContext;
     }
 }

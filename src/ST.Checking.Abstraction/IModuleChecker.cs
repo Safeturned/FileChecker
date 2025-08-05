@@ -1,6 +1,7 @@
-﻿namespace ST.Checking.Abstraction;
+﻿using ST.CheckingProcessor.Abstraction;
+namespace ST.Checking.Abstraction;
 public interface IModuleChecker
 {
-    bool CanCheck(IModuleCheckingContext context);
-    void Check(IModuleCheckingContext context);
+    bool CanCheck(IModuleProcessingContext context);
+    void Check(IModuleProcessingContext context);
 }

@@ -3,6 +3,7 @@
         <PackageReference Include="dnlib" Version="4.5.0"/>
     </ItemGroup>
     <ItemGroup>
+        <ProjectReference Include="..\ST.CheckingProcessor.DnLib\ST.CheckingProcessor.DnLib.csproj" />
         <ProjectReference Include="..\ST.Checking\ST.Checking.csproj"/>
     </ItemGroup>
 </Project>
