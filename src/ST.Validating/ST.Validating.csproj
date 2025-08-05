@@ -1,0 +1,5 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <ProjectReference Include="..\ST.Validating.Abstraction\ST.Validating.Abstraction.csproj"/>
+    </ItemGroup>
+</Project>

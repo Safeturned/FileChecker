@@ -1,0 +1,19 @@
+<Project>
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <LangVersion>preview</LangVersion>
+        <Nullable>enable</Nullable>
+        <BaseOutputPath>$(SolutionDir)bin\lib</BaseOutputPath>
+        <PackageId>$(MSBuildProjectName)</PackageId>
+        <Company>Empty Solution</Company>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <WarningLevel>9999</WarningLevel>
+        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    </PropertyGroup>
+    <PropertyGroup>
+        <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+        <ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
+    </PropertyGroup>
+</Project>
