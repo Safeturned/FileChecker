@@ -1,9 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFrameworks>net48;net9.0</TargetFrameworks>
+        <TargetFramework/>
+    </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="dnlib" Version="4.5.0"/>
+        <PackageReference Update="DI.Engine.Attributes" Version="1.0.7"/>
+        <PackageReference Update="DI.Services.Scheme.Attributes" Version="1.0.7"/>
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\ST.CheckingProcessor.DnLib\ST.CheckingProcessor.DnLib.csproj" />
+        <ProjectReference Include="..\ST.Checking.DnLib.Abstraction\ST.Checking.DnLib.Abstraction.csproj"/>
+        <ProjectReference Include="..\ST.CheckingProcessor.DnLib\ST.CheckingProcessor.DnLib.csproj"/>
         <ProjectReference Include="..\ST.Checking\ST.Checking.csproj"/>
     </ItemGroup>
 </Project>

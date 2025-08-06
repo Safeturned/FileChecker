@@ -1,2 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <PackageReference Update="DI.Engine.Attributes" Version="1.0.7"/>
+        <PackageReference Update="DI.Services.Scheme.Attributes" Version="1.0.7"/>
+    </ItemGroup>
 </Project>

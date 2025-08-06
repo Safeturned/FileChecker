@@ -8,5 +8,5 @@ namespace ST.Validating.DnLib;
 public class DnLibModuleDependenciesValidator : BaseModuleValidator<IDnLibModuleProcessingContext>
 {
     protected override bool InternalValidate(IDnLibModuleProcessingContext context) =>
-        context.Module.GetAssemblyRefs().Any(a => a.FullName.ToString().Contains("assembly-csharp"));
+        context.Module.GetAssemblyRefs().Any(a => a.FullName.ToString().ToLower().Contains("assembly-csharp"));
 }

@@ -17,10 +17,10 @@ public class DnLibModuleCheckingProcessor(
 {
     public IModuleProcessingContext Process(Stream stream)
     {
-        ModuleDefMD                  module            = ModuleDefMD.Load(stream);
-        DnLibModuleProcessingContext processingContext = new(stream, module);
+        ModuleDefMD                   module            = ModuleDefMD.Load(stream);
+        IDnLibModuleProcessingContext processingContext = new DnLibModuleProcessingContext(stream, module);
         foreach(IModuleValidator moduleValidator in moduleValidators)
-            if(!moduleValidator.CanValidate(processingContext))
+            if(moduleValidator.CanValidate(processingContext) && !moduleValidator.Validate(processingContext))
                 return processingContext;
 
         foreach(IModuleChecker moduleChecker in moduleCheckers)

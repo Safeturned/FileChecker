@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ST.Initializatializing.Abst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ST.Validating.DnLib", "ST.Validating.DnLib\ST.Validating.DnLib.csproj", "{F79F0D3A-ADB7-4F6E-9C94-519B309863C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ST.Checking.DnLib.Abstraction", "ST.Checking.DnLib.Abstraction\ST.Checking.DnLib.Abstraction.csproj", "{06C7D422-5A92-4D95-B2A6-7566A1EBE927}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{F79F0D3A-ADB7-4F6E-9C94-519B309863C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F79F0D3A-ADB7-4F6E-9C94-519B309863C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F79F0D3A-ADB7-4F6E-9C94-519B309863C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06C7D422-5A92-4D95-B2A6-7566A1EBE927}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C7D422-5A92-4D95-B2A6-7566A1EBE927}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C7D422-5A92-4D95-B2A6-7566A1EBE927}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C7D422-5A92-4D95-B2A6-7566A1EBE927}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,6 +94,7 @@ Global
 		{C4586BFF-4EBC-434A-9603-5BCA6EA3A208} = {C425282B-B3F5-4E4A-AF85-C0CDCC0F1FC6}
 		{A9D07E94-991D-4170-8062-FD1769014EAE} = {C425282B-B3F5-4E4A-AF85-C0CDCC0F1FC6}
 		{F79F0D3A-ADB7-4F6E-9C94-519B309863C2} = {B1D5F2A0-12F0-4880-94E5-709904C4126A}
+		{06C7D422-5A92-4D95-B2A6-7566A1EBE927} = {81BD6572-D1DE-40EC-96B4-8C8089D79893}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25639316-D544-4642-8C41-DFDFC25586E8}

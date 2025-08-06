@@ -1,5 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <ItemGroup>
-    <ProjectReference Include="..\ST.CheckingProcessor.Abstraction\ST.CheckingProcessor.Abstraction.csproj" />
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFrameworks>net48;net9.0</TargetFrameworks>
+        <TargetFramework/>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\ST.CheckingProcessor.Abstraction\ST.CheckingProcessor.Abstraction.csproj"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Update="DI.Engine.Attributes" Version="1.0.7"/>
+        <PackageReference Update="DI.Services.Scheme.Attributes" Version="1.0.7"/>
+    </ItemGroup>
 </Project>
