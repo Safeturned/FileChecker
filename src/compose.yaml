@@ -1,7 +1,0 @@
-﻿services:
-  fc.core:
-    image: fc.core
-    build:
-      context: .
-      dockerfile: FC.Core/Dockerfile
-
