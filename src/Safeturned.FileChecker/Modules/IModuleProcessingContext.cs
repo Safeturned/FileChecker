@@ -1,4 +1,5 @@
-﻿namespace Safeturned.FileChecker;
+﻿namespace Safeturned.FileChecker.Modules;
+
 public interface IModuleProcessingContext
 {
     Stream SourceStream { get; }
