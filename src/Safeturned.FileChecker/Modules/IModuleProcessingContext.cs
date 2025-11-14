@@ -6,4 +6,5 @@ public interface IModuleProcessingContext
     float Score { get; set; }
     string? Message { get; set; }
     bool Checked { get; set; }
+    object GetAnalysisResults();
 }
