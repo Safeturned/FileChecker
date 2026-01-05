@@ -2,7 +2,7 @@ name: Build and Push FileChecker
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - 'src/**'
       - '.github/workflows/build-and-push.yml'
