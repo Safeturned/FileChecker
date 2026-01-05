@@ -8,9 +8,10 @@ namespace Safeturned.FileChecker;
 public static class Checker
 {
     public static string Version { get; } = Assembly.GetExecutingAssembly()
-        .GetName()
-        .Version?
-        .ToString()!;
+        .GetCustomAttribute<AssemblyInformationalVersionAttribute>()
+        ?.InformationalVersion
+        ?? Assembly.GetExecutingAssembly().GetName().Version?.ToString()
+        ?? "0.0.0.0";
 
     public static IModuleProcessingContext Process(Stream stream)
     {
