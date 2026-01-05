@@ -1,0 +1,9 @@
+**/.git
+**/.vs
+**/.vscode
+**/bin
+**/obj
+**/.gitignore
+**/README.md
+**/*.user
+**/*.suo
