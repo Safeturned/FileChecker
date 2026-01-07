@@ -2,5 +2,6 @@ namespace Safeturned.FileChecker.Modules;
 
 internal interface IModuleAnalyzer
 {
-    void Analyze(ModuleProcessingContext context);
+    string FeatureName { get; }
+    FeatureResult Analyze(ModuleProcessingContext context);
 }

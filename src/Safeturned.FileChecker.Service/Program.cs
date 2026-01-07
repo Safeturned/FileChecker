@@ -1,6 +1,8 @@
 using Safeturned.FileChecker;
 using dnlib.DotNet;
 
+using FeatureResult = Safeturned.FileChecker.FeatureResult;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
@@ -35,10 +37,8 @@ app.MapPost("/analyze", async (HttpRequest request) =>
 
         return Results.Ok(new AnalyzeResponse(
             result.Score,
-            result.Message,
-            result.Checked,
             Checker.Version,
-            result.GetAnalysisResults(),
+            result.Features.ToArray(),
             metadata
         ));
     }
@@ -136,10 +136,8 @@ static AssemblyMetadata ExtractMetadata(Stream fileStream)
 
 public record AnalyzeResponse(
     float Score,
-    string? Message,
-    bool Checked,
     string Version,
-    object Results,
+    FeatureResult[] Features,
     AssemblyMetadata Metadata
 );
 

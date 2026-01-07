@@ -19,11 +19,13 @@ public static class Checker
         var context = new ModuleProcessingContext(stream, module);
         List<IModuleAnalyzer> analyzers =
         [
-            new BlacklistedCommandAnalyzer()
+            new BlacklistedCommandAnalyzer(),
+            new NetworkActivityAnalyzer(),
         ];
         foreach (var moduleAnalyzer in analyzers)
         {
-            moduleAnalyzer.Analyze(context);
+            var featureResult = moduleAnalyzer.Analyze(context);
+            context.AddFeatureResult(featureResult);
         }
         return context;
     }

@@ -1,10 +1,10 @@
-﻿using dnlib.DotNet;
+using dnlib.DotNet;
 
 namespace Safeturned.FileChecker.Modules;
 
 internal class ModuleProcessingContext : IModuleProcessingContext
 {
-    private readonly List<string> _analysisResults = new();
+    private readonly List<FeatureResult> _features = [];
 
     public ModuleProcessingContext(Stream sourceStream, ModuleDefMD module)
     {
@@ -14,21 +14,11 @@ internal class ModuleProcessingContext : IModuleProcessingContext
 
     public ModuleDefMD Module { get; }
     public Stream SourceStream { get; }
-    public float Score { get; set; }
-    public string? Message { get; set; }
-    public bool Checked { get; set; }
+    public float Score => _features.Sum(f => f.Score);
+    public IReadOnlyList<FeatureResult> Features => _features;
 
-    public void AddAnalysisResult(string result)
+    public void AddFeatureResult(FeatureResult feature)
     {
-        _analysisResults.Add(result);
-    }
-
-    public object GetAnalysisResults()
-    {
-        return new
-        {
-            message = Message,
-            results = _analysisResults.ToArray()
-        };
+        _features.Add(feature);
     }
 }

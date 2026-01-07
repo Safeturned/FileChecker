@@ -1,4 +1,4 @@
-﻿using dnlib.DotNet.Emit;
+using dnlib.DotNet.Emit;
 using Safeturned.FileChecker.Modules;
 
 namespace Safeturned.FileChecker.Analyzers;
@@ -14,8 +14,13 @@ internal class BlacklistedCommandAnalyzer : IModuleAnalyzer
         ("ban", 20),
     ];
 
-    public void Analyze(ModuleProcessingContext context)
+    public string FeatureName => "BlacklistedCommands";
+
+    public FeatureResult Analyze(ModuleProcessingContext context)
     {
+        float score = 0;
+        var messages = new List<FeatureMessage>();
+
         foreach (var typeDef in context.Module.GetTypes())
         foreach (var typeDefMethod in typeDef.Methods)
         {
@@ -32,15 +37,22 @@ internal class BlacklistedCommandAnalyzer : IModuleAnalyzer
                 instruction = typeDefMethod.Body.Instructions[i + 2];
                 if (instruction.OpCode != OpCodes.Ldstr)
                     continue;
-                foreach (var (command, score) in BlacklistedCommands)
+                foreach (var (command, commandScore) in BlacklistedCommands)
                 {
                     if (instruction.Operand.ToString()!.Contains(command, StringComparison.CurrentCultureIgnoreCase))
                     {
-                        context.Score += score;
-                        context.Message += $"Blacklisted command {command} found in {typeDefMethod.FullName}";
+                        score += commandScore;
+                        messages.Add(new FeatureMessage { Text = $"Blacklisted command {command} found in {typeDefMethod.FullName}" });
                     }
                 }
             }
         }
+
+        return new FeatureResult
+        {
+            Name = FeatureName,
+            Score = score,
+            Messages = messages.Count > 0 ? messages : null
+        };
     }
 }
